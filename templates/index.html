@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Solver</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Math Solver</h1>
+        <form method="POST">
+            <label for="equation">Masukkan Persamaan:</label>
+            <input type="text" id="equation" name="equation" placeholder="Contoh: x**2 + 3*x + 2" required>
+
+            <label for="operation">Pilih Operasi:</label>
+            <select id="operation" name="operation" required>
+                <option value="solve">Memecahkan Persamaan</option>
+                <option value="simplify">Menyederhanakan Ekspresi</option>
+                <option value="differentiate">Menghitung Turunan</option>
+                <option value="integrate">Menghitung Integral</option>
+            </select>
+
+            <button type="submit">Proses</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h2>Hasil:</h2>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
